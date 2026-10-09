@@ -17,13 +17,32 @@
 }
 </script>
 <style>
-  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#F2B705;font-family:Arial,sans-serif;text-align:center;padding:20px}
-  h1{margin:0 0 8px;color:#111}
-  p{color:#222;margin:0 0 24px}
-  a{background:#111;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:bold}
+  html,body{height:100%}
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#F2B705;font-family:Arial,sans-serif;text-align:center;padding:20px;box-sizing:border-box;overflow:hidden}
+
+  /* YouTube background video */
+  .video-bg{position:fixed;inset:0;overflow:hidden;z-index:-2;pointer-events:none}
+  .video-bg iframe{position:absolute;top:50%;left:50%;border:0;
+    /* Short = vertical 9:16 video, so cover the screen with a 9:16 box */
+    width:max(100vw,56.25vh);height:max(100vh,177.78vw);
+    transform:translate(-50%,-50%)}
+  /* dark layer so text stays readable */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:-1}
+
+  h1{margin:0 0 8px;color:#fff}
+  p{color:#fff;margin:0 0 24px}
+  a{background:#F2B705;color:#111;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
+  <div class="video-bg">
+    
+    <iframe
+      src="https://www.youtube.com/embed/gOCH0WXI7TQ?autoplay=1&mute=1&loop=1&playlist=gOCH0WXI7TQ&controls=0&modestbranding=1&playsinline=1&rel=0"
+      allow="autoplay; encrypted-media" title="NESH background video"></iframe>
+  </div>
+  <div class="overlay"></div>
+
   <h1>NESH Taxi and Delivery</h1>
   <p>Book taxis, order groceries and food online.</p>
   <a href="NESH-APP/">Open NESH App</a>
